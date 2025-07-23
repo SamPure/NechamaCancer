@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Navigation functionality
 function initNavigation() {
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navbar = document.getElementById('navbar');
+    const navToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const mainNav = document.querySelector('.main-nav');
 
     // Mobile menu toggle
     if (navToggle && navMenu) {
@@ -31,14 +31,14 @@ function initNavigation() {
     }
 
     // Navbar scroll effect
-    if (navbar) {
+    if (mainNav) {
         window.addEventListener('scroll', function() {
             if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                mainNav.style.background = 'rgba(255, 255, 255, 0.98)';
+                mainNav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
             } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                navbar.style.boxShadow = 'none';
+                mainNav.style.background = 'rgba(255, 255, 255, 0)';
+                mainNav.style.boxShadow = 'none';
             }
         });
     }
@@ -83,7 +83,7 @@ function initAnimations() {
     }, observerOptions);
 
     // Observe elements for animation
-    const animatedElements = document.querySelectorAll('.about-card, .service-card, .support-card, .contact-card, .overview-card');
+    const animatedElements = document.querySelectorAll('.about-card, .support-card, .contact-card, .overview-card, .content-card');
     animatedElements.forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);

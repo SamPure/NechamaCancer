@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - WonderWomen</title>
-    <meta name="description" content="Contact WonderWomen for support, questions, or to join our community.">
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <!-- Navigation -->
+#!/bin/bash
+
+# New navigation structure
+NEW_NAV='    <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
             <div class="logo">
@@ -64,46 +54,10 @@
                 <span></span>
             </div>
         </div>
-    </nav>
+    </nav>'
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Contact Us</h1>
-            <p>Feel free to reach out to us for support or information</p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3>Sasha Parker</h3>
-                    <a href="mailto:sashaparker@weareww.org" class="contact-link">
-                        sashaparker@weareww.org
-                    </a>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3>Alizah Amoyelle</h3>
-                    <a href="mailto:alizahamoyelle@weareww.org" class="contact-link">
-                        alizahamoyelle@weareww.org
-                    </a>
-                </div>
-            </div>
-            <div class="contact-info">
-                <p>Contents Copyright © 2025 Wonder Women Foundation Inc., a 501(c)3 charitable organization.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+# New footer structure
+NEW_FOOTER='    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -133,6 +87,43 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="assets/js/script.js"></script>
-</body>
-</html> 
+    <script src="assets/js/script.js"></script>'
+
+# Function to update navigation in a file
+update_navigation() {
+    local file="$1"
+    echo "Updating navigation in $file"
+    
+    # Create a temporary file
+    temp_file=$(mktemp)
+    
+    # Replace the navigation section
+    awk -v nav="$NEW_NAV" '
+    BEGIN { in_nav = 0; nav_replaced = 0 }
+    /<!-- Navigation -->/ { in_nav = 1; print nav; nav_replaced = 1; next }
+    in_nav && /<\/nav>/ { in_nav = 0; next }
+    in_nav { next }
+    { print }
+    ' "$file" > "$temp_file"
+    
+    # Replace the footer section
+    awk -v footer="$NEW_FOOTER" '
+    BEGIN { in_footer = 0; footer_replaced = 0 }
+    /<!-- Footer -->/ { in_footer = 1; print footer; footer_replaced = 1; next }
+    in_footer && /<\/body>/ { in_footer = 0; print; next }
+    in_footer { next }
+    { print }
+    ' "$temp_file" > "$file"
+    
+    # Clean up
+    rm "$temp_file"
+}
+
+# Update all HTML files
+for file in about.html support.html services.html about/*.html what-we-do/*.html additional-support/*.html; do
+    if [ -f "$file" ]; then
+        update_navigation "$file"
+    fi
+done
+
+echo "Navigation update complete!" 
