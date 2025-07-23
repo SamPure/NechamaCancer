@@ -44,7 +44,7 @@ function initNavigation() {
     }
 }
 
-// Smooth scrolling for anchor links
+// Smooth scrolling for anchor links (only on same page)
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
     
@@ -83,7 +83,7 @@ function initAnimations() {
     }, observerOptions);
 
     // Observe elements for animation
-    const animatedElements = document.querySelectorAll('.about-card, .service-card, .support-card, .contact-card');
+    const animatedElements = document.querySelectorAll('.about-card, .service-card, .support-card, .contact-card, .overview-card');
     animatedElements.forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
@@ -92,9 +92,9 @@ function initAnimations() {
 
 // Scroll effects
 function initScrollEffects() {
-    // Parallax effect for hero section
+    // Parallax effect for hero section (only on homepage)
     const hero = document.querySelector('.hero');
-    if (hero) {
+    if (hero && (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/'))) {
         window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
             const rate = scrolled * -0.5;
@@ -102,27 +102,29 @@ function initScrollEffects() {
         });
     }
 
-    // Active navigation highlighting
+    // Active navigation highlighting for same-page sections
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
 
-    window.addEventListener('scroll', function() {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.clientHeight;
-            if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
+    if (sections.length > 0 && navLinks.length > 0) {
+        window.addEventListener('scroll', function() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
-    });
+    }
 }
 
 // Form handling (if needed)

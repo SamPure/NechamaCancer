@@ -120,6 +120,15 @@ p {
     width: auto;
 }
 
+.nav-logo a {
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.nav-logo a:hover {
+    opacity: 0.8;
+}
+
 .nav-menu {
     display: flex;
     align-items: center;
@@ -426,6 +435,16 @@ p {
 .footer-logo img {
     height: 40px;
     width: auto;
+    filter: brightness(0) invert(1); /* Makes the pink logo appear white in footer */
+}
+
+.footer-logo a {
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-logo a:hover {
+    opacity: 0.8;
 }
 
 .footer-links {
@@ -554,4 +573,351 @@ html {
 
 .loaded {
     opacity: 1;
+}
+
+/* Overview Section */
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.overview-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: center;
+    position: relative;
+}
+
+.overview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.overview-card .card-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: var(--white);
+    font-size: 2rem;
+}
+
+.overview-card h3 {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.overview-card p {
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+}
+
+.overview-card .btn {
+    margin-top: 1rem;
+}
+
+/* Responsive adjustments for overview */
+@media (max-width: 768px) {
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .overview-card {
+        padding: 2rem;
+    }
+} 
+
+/* How To Join Section Custom Styles */
+.join-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+.join-text {
+    flex: 1 1 350px;
+    color: #fff;
+    max-width: 600px;
+}
+.join-text h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+.join-text .highlight {
+    color: #d7237b;
+    border-bottom: 4px solid #d7237b;
+    padding-bottom: 0.1em;
+}
+.eligibility-text {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+}
+.contact-text {
+    color: #fff;
+    font-size: 1.1rem;
+}
+.join-illustration {
+    flex: 0 0 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.illustration-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: #111;
+    border-radius: 50%;
+    border: 6px solid #d7237b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.wonder-woman-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+.stars-decoration {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #fff;
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+.stars-decoration i {
+    margin-right: 4px;
+}
+.join-cta {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+.organization-name h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+.organization-name .ww-logo {
+    color: #d7237b;
+    font-family: inherit;
+}
+.email-prompt {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+.email-prompt .highlight {
+    color: #d7237b;
+    border-bottom: 3px solid #d7237b;
+    padding-bottom: 0.05em;
+}
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 30px;
+    padding: 0.7em 2em;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.contact-btn:hover {
+    background: #d7237b;
+    color: #fff;
+    border-color: #d7237b;
+}
+.contact-btn i {
+    font-size: 1.2em;
+}
+@media (max-width: 900px) {
+    .join-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .join-illustration {
+        margin: 0 auto 2rem auto;
+    }
+} 
+
+/* Page Header */
+.page-header {
+    background: var(--gradient-primary);
+    color: var(--white);
+    padding: 120px 0 60px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+/* Content Cards */
+.content-card {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.content-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    color: var(--white);
+    font-size: 2rem;
+}
+
+.content-card h2 {
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.content-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+/* Lists */
+.mission-list,
+.support-list,
+.speakers-list,
+.b4b-list,
+.gatherings-list,
+.shabbaton-list,
+.magnificent-me-list,
+.criteria-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.mission-list li,
+.support-list li,
+.speakers-list li,
+.b4b-list li,
+.gatherings-list li,
+.shabbaton-list li,
+.magnificent-me-list li {
+    padding: 0.5rem 0;
+    color: var(--text-light);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.mission-list li:before,
+.support-list li:before,
+.speakers-list li:before,
+.b4b-list li:before,
+.gatherings-list li:before,
+.shabbaton-list li:before,
+.magnificent-me-list li:before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.criteria-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.criteria-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--secondary-color);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+}
+
+.criteria-item i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.criteria-item span {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* Responsive Design for New Pages */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 100px 0 40px;
+    }
+    
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .page-header p {
+        font-size: 1rem;
+    }
+    
+    .content-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .content-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .criteria-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
 } 
