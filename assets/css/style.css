@@ -993,3 +993,113 @@ html {
         margin-bottom: 20px;
     }
 } 
+
+/* Mission Page Styles */
+.mission-section {
+    background-color: #000;
+    color: #fff;
+    padding: 80px 0;
+    min-height: calc(100vh - 160px);
+}
+
+.mission-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.mission-text {
+    padding-right: 40px;
+}
+
+.mission-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.mission-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #ff69b4;
+    border-radius: 2px;
+}
+
+.mission-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+.mission-description p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.mission-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wonder-woman-circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 8px solid #ff69b4;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
+}
+
+.wonder-woman-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@media (max-width: 900px) {
+    .mission-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    .mission-text {
+        padding-right: 0;
+    }
+    .mission-title {
+        font-size: 36px;
+    }
+    .mission-subtitle {
+        font-size: 20px;
+    }
+    .wonder-woman-circle {
+        width: 200px;
+        height: 200px;
+    }
+    .wonder-woman-img {
+        width: 150px;
+        height: 150px;
+    }
+} 
