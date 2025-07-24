@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScrolling();
     initAnimations();
     initScrollEffects();
+    initDropdownAccessibility();
 });
 
 // Navigation functionality
@@ -42,6 +43,36 @@ function initNavigation() {
             }
         });
     }
+}
+
+// Dropdown accessibility
+function initDropdownAccessibility() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    dropdowns.forEach(dropdown => {
+        const trigger = dropdown.querySelector('.nav-link');
+        const menu = dropdown.querySelector('.dropdown-menu');
+        
+        if (trigger && menu) {
+            // Handle mouse events
+            dropdown.addEventListener('mouseenter', function() {
+                trigger.setAttribute('aria-expanded', 'true');
+            });
+            
+            dropdown.addEventListener('mouseleave', function() {
+                trigger.setAttribute('aria-expanded', 'false');
+            });
+            
+            // Handle keyboard events
+            trigger.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+                    trigger.setAttribute('aria-expanded', !isExpanded);
+                }
+            });
+        }
+    });
 }
 
 // Smooth scrolling for anchor links (only on same page)

@@ -12,48 +12,50 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="main-nav" role="navigation">
         <div class="nav-container">
-            <div class="nav-logo">
+            <div class="logo">
                 <a href="../index.html">
-                    <img src="../assets/images/ww-logo-pink.png" alt="WonderWomen Logo" class="logo-img">
+                    <img src="../assets/images/ww-logo-pink.png" alt="WonderWomen" class="nav-logo">
                 </a>
             </div>
-            <div class="nav-menu" id="nav-menu">
-                <div class="nav-item dropdown">
-                    <a href="../about/our-mission.html" class="nav-link">About Us <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="../about/our-mission.html">Our Mission</a>
-                        <a href="../about/our-story.html">Our Story</a>
-                        <a href="../about/who-is-this-group-for.html">Who Is This Group For</a>
-                        <a href="../about/how-to-join.html">How To Join</a>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="../what-we-do/24-6-support.html" class="nav-link">What We Do <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="../what-we-do/24-6-support.html">24/6 Support</a>
-                        <a href="../what-we-do/monthly-speakers.html">Monthly Speakers</a>
-                        <a href="../what-we-do/bags-for-bravery.html">Bags for Bravery (B4B)</a>
-                        <a href="../what-we-do/gatherings.html">Gatherings</a>
-                        <a href="../what-we-do/shabbatons.html">Shabbatons</a>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="../additional-support/magnificent-me.html" class="nav-link active">Additional Support <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="../additional-support/magnificent-me.html" class="active">Magnificent Me</a>
-                    </div>
-                </div>
-                <a href="../contact.html" class="nav-link">Contact Us</a>
-                <a href="https://donorbox.org/wonder-women" target="_blank" class="nav-link donate-btn">
-                    <i class="fas fa-heart"></i> Donate
-                </a>
-            </div>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <ul class="nav-menu">
+                <li class="nav-item dropdown">
+                    <a href="../about/our-mission.html" class="nav-link" aria-haspopup="true" aria-expanded="false">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../about/our-mission.html">Our Mission</a></li>
+                        <li><a href="../about/our-story.html">Our Story</a></li>
+                        <li><a href="../about/who-is-this-group-for.html">Who Is This Group For</a></li>
+                        <li><a href="../about/how-to-join.html">How To Join</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="../what-we-do/24-6-support.html" class="nav-link" aria-haspopup="true" aria-expanded="false">What we do?</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../what-we-do/24-6-support.html">24/6 Support</a></li>
+                        <li><a href="../what-we-do/monthly-speakers.html">Monthly Speakers</a></li>
+                        <li><a href="../what-we-do/bags-for-bravery.html">Bags for Bravery (B4B)</a></li>
+                        <li><a href="../what-we-do/gatherings.html">Gatherings</a></li>
+                        <li><a href="../what-we-do/shabbatons.html">Shabbatons</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="magnificent-me.html" class="nav-link" aria-haspopup="true" aria-expanded="false">Additional Support</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="magnificent-me.html">Magnificent Me</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="../contact.html" class="nav-link">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://donorbox.org/wonder-women" target="_blank" class="nav-link donate-btn">Donate</a>
+                </li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
@@ -95,15 +97,25 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <a href="../index.html">
-                        <img src="../assets/images/ww-logo-white.png" alt="WonderWomen Logo" class="footer-logo-img">
+                    <img src="../assets/images/ww-logo-white.png" alt="WonderWomen" class="footer-logo-img">
+                </div>
+                <h3 class="footer-heading">
+                    <span class="footer-prefix">Feel free to send </span>
+                    <span class="footer-highlight">us</span>
+                    <span class="footer-postfix">an email</span>
+                </h3>
+                <div class="contact-buttons">
+                    <a href="mailto:sashaparker@weareww.org" class="contact-btn">
+                        <i class="fas fa-envelope"></i>
+                        <span>Sasha Parker</span>
+                    </a>
+                    <a href="mailto:alizahamoyelle@weareww.org" class="contact-btn">
+                        <i class="fas fa-envelope"></i>
+                        <span>Alizah Amoyelle</span>
                     </a>
                 </div>
-                <div class="footer-links">
-                    <a href="../about/our-mission.html">About</a>
-                    <a href="../what-we-do/24-6-support.html">Services</a>
-                    <a href="../contact.html">Contact</a>
-                    <a href="https://donorbox.org/wonder-women" target="_blank">Donate</a>
+                <div class="footer-copyright">
+                    <p>Contents Copyright © 2025 Wonder Women Foundation Inc., a 501(c)3 charitable organization.</p>
                 </div>
             </div>
         </div>
