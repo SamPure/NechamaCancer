@@ -97,26 +97,37 @@ p {
 
 /* Navigation */
 .main-nav {
+    display: flex;
+    align-items: center;
     background: #000 !important;
+    height: 80px;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    padding: 20px 60px;
-    min-height: 100px;
+    box-shadow: none;
 }
 
 .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 40px;
 }
 
-.logo img {
-    max-width: 250px;
+.logo {
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+.nav-logo {
+    max-width: 120px;
     height: auto;
+    margin-right: 24px;
 }
 
 .nav-menu {
@@ -329,11 +340,9 @@ p {
 }
 
 .footer-heading {
-    font-size: 36px;
-    font-weight: 600;
-    margin: 30px 0 60px;
-    color: #ffffff;
     position: relative;
+    display: inline-block;
+    text-align: center;
 }
 
 .footer-prefix {
@@ -1001,7 +1010,8 @@ html {
     color: #fff;
     padding: 80px 0;
     min-height: calc(100vh - 160px);
-    margin-top: 60px;
+    margin-top: 100px;
+    padding-top: 0;
 }
 
 .mission-content {
@@ -1104,4 +1114,23 @@ html {
         width: 150px;
         height: 150px;
     }
+} 
+
+.footer-logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.pink-underline {
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #ff69b4;
+    border-radius: 2px;
+    margin: 10px 0 0 0;
 } 
